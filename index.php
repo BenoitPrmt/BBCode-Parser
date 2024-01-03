@@ -46,6 +46,7 @@ if (!empty($_POST["entry"])) {
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 
 </head>
 
@@ -80,10 +81,12 @@ if (!empty($_POST["entry"])) {
         </div>
         <div class="right">
             <h2>HTML Output</h2>
-            <div id="result">
-                <?= htmlspecialchars($text) ?>
-            </div>
-            <button onclick="copyToClipboard('result')">Copy</button>
+            <?php if($text !== null) { ?>
+                <div id="result">
+                    <?= htmlspecialchars($text) ?>
+                </div>
+                <button onclick="copyToClipboard('result')">Copy</button>
+            <?php } ?>
         </div>
     </section>
     <section class="container center" id="preview">
