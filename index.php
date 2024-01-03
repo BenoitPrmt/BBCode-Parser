@@ -1,12 +1,21 @@
 <?php
 
+$TAGS = [
+    "[b]" => "<b>",
+    "[/b]" => "</b>",
+    "[i]" => "<i>",
+    "[/i]" => "</i>",
+];
 
 
 if (!empty($_POST["entry"])) {
+    $text = $_POST["entry"];
 
-    foreach (str_split($_POST["entry"]) as $char) {
-        echo $char . "<br>";
+    foreach ($TAGS as $key => $value) {
+        $text = str_replace($key, $value, $text);
     }
+
+    echo $text;
 
 }
 
@@ -25,7 +34,8 @@ if (!empty($_POST["entry"])) {
     <section>
         <div class="left">
             <form action="index.php" method="post">
-                <input id="entry" name="entry" type="text" placeholder="BBCode">
+                <textarea id="entry" name="entry" type="text" placeholder="BBCode"></textarea>
+                <button type="submit">Envoyer</button>
             </form>
         </div>
         <div class="right">
