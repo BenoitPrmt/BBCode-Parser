@@ -81,7 +81,7 @@ if (!empty($_POST["entry"])) {
         </div>
         <div class="right">
             <h2>HTML Output</h2>
-            <?php if($text !== null) { ?>
+            <?php if(!empty($_POST["entry"])) { ?>
                 <div id="result">
                     <?= htmlspecialchars($text) ?>
                 </div>
