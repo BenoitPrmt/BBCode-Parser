@@ -26,6 +26,8 @@ $text = "<b>bold</b><br>
 if (!empty($_POST["entry"])) {
     $text = $_POST["entry"];
 
+    $text = htmlspecialchars($text);
+
     foreach ($TAGS as $key => $value) {
         $text = str_replace($key, $value, $text);
     }
